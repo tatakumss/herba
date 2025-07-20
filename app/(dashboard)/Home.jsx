@@ -1,12 +1,4 @@
-import {
-  View,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  ScrollView,
-  KeyboardAvoidingView,
-  Platform,
-} from "react-native";
+import { View, Text, TextInput, TouchableOpacity, ScrollView, KeyboardAvoidingView, Platform, } from "react-native";
 import { useEffect, useState } from "react";
 import { useRouter } from "expo-router";
 import { onAuthStateChanged } from "firebase/auth";
@@ -20,11 +12,14 @@ export default function Home() {
   // 🔐 Session check: redirect if not logged in
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (!user) {
-        router.replace("/login");
+      if (user) {
+        console.log('User is signed in:', user);
+      } else {
+        console.log('User is signed out');
       }
     });
-    return unsubscribe;
+  
+    return () => unsubscribe();
   }, []);
 
   const navItems = [

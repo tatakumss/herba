@@ -1,13 +1,5 @@
-import {
-    View,
-    Text,
-    TextInput,
-    ScrollView,
-    TouchableOpacity,
-    Switch,
-    Alert,
-} from "react-native";
-import { Ionicons, FontAwesome5, MaterialIcons, Entypo } from "@expo/vector-icons";
+import { View, Text, TextInput, ScrollView, TouchableOpacity, Switch, Alert, } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 import { useState } from "react";
 import { useRouter } from "expo-router";
 import { signOut } from "firebase/auth";
